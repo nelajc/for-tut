@@ -15,3 +15,17 @@ dockerbuild -t nginxphp:nel /root/for-tut/docker/nginxphp
 ### run container
 cd /root/for-tut/docker
 docker-compose up -d
+
+### You should now able to access nginx at http://<server-ip>
+
+### to list containers
+docker ps
+
+### to login to container
+docker exec -it <container-name> bash
+
+### sample: your mysql container named mysql
+docker exec -it mysql bash
+### once login. check mysql if running
+mysql -u root
+show databases
