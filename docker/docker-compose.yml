@@ -1,0 +1,25 @@
+version: '3.6'
+
+services:
+
+  percona:
+    image: percona:5.7
+    container_name: mysql
+    volumes:
+      - "/opt/mysql/5.7:/var/lib/mysql"
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+    restart: always
+    privileged: true
+
+  web-php:
+    image: nginxphp:nel
+    container_name: web-php
+    volumes:
+      - "/opt/nginxphp:/srv/http"
+    ports:
+      - "80:80"
+    restart: always
+    privileged: true
